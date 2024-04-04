@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>All Products - Redstore</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='images/XYZ_Logo.png') }}" width="125px"></a>
+                </div>
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                         <li><a href="">Products</a></li>
+                         <li><a href="">About</a></li>
+                         <li><a href="">Contact</a></li>
+                         <li><a href="{{ url_for('Discountprice') }}">Discount price</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+    <div class="small-container single-product">
+
+        <div class="row">
+            <div class="col-2">
+                <img src="{{ url_for('static', filename='images/product-11.jpg') }}" width="100%" id="productImg">
+
+
+                <div class="small-img-row">
+                    <div class="small-img-col">
+                        <img src="{{ url_for('static', filename='images/product-11.jpg') }}" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="{{ url_for('static', filename='images/product-5.jpg') }}" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="{{ url_for('static', filename='images/product-11.jpg') }}" width="100%" class="small-img">
+                    </div>
+                    <div class="small-img-col">
+                        <img src="{{ url_for('static', filename='images/product-5.jpg') }}" width="100%" class="small-img">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-2">
+                <p>Shoes</p>
+                <h1>Sports Shoes</h1>
+                <h4>$500.00</h4>
+                <a href="" class="btn">Add to Cart</a>
+                <a href="{{ url_for('Discount') }}" class="btn">Discounted Price</a>
+                <h3>Product Details </h3>
+                <br>
+                <p>Product Dimensions ‏ : ‎ 30 x 20 x 10 cm; 400 g <br>
+                    Date First Available ‏ : ‎ 8 November 2023 <br>
+                    Manufacturer ‏ : ‎ NIKE INDIA PVT LTD <br>
+                    ASIN ‏ : ‎ B0CMXP18D4 <br>
+                    Item model number ‏ : ‎ DM9537-105 <br>
+                    Country of Origin ‏ : ‎ Vietnam <br>
+                    Department ‏ : ‎ mens <br>
+                    Manufacturer ‏ : ‎ NIKE INDIA PVT LTD, NIKE INDIA PVT LTD,GROUND & 1ST FLOOR OLYMPIA BUILDING,NO 66/1 BAGMANE TECH PARK,CV RAMAN NAGAR BANGALORE-560093 INDIA <br>
+                    Packer ‏ : ‎ NIKE INDIA PVT LTD,GROUND & 1ST FLOOR OLYMPIA BUILDING,NO 66/1 BAGMANE TECH PARK,CV RAMAN NAGAR BANGALORE-560093 INDIA <br>
+                    Importer ‏ : ‎ NIKE INDIA PVT LTD, NIKE INDIA PVT LTD,GROUND & 1ST FLOOR OLYMPIA BUILDING,NO 66/1 BAGMANE TECH PARK,CV RAMAN NAGAR BANGALORE-560093 INDIA <br>
+                    Item Weight ‏ : ‎ 400 g <br>
+                    Item Dimensions LxWxH ‏ : ‎ 30 x 20 x 10 Centimeters <br>
+                    Net Quantity ‏ : ‎ 1 Count <br>
+                    Generic Name ‏ : ‎ Running Shoes <br>
+                    Best Sellers Rank: #3,825 in Shoes & Handbags (See Top 100 in Shoes & Handbags) <br>
+                    #366 in Men's Running Shoes </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var menuItems = document.getElementById("MenuItems");
+
+        menuItems.style.maxHeight = "0px";
+
+        function menutoggle() {
+            if (menuItems.style.maxHeight == "0px") {
+                menuItems.style.maxHeight = "200px";
+            } else {
+                menuItems.style.maxHeight = "0px";
+            }
+        }
+
+        var productImg = document.getElementById("productImg");
+        var smallImg = document.getElementsByClassName("small-img");
+
+        smallImg[0].onclick = function() {
+            productImg.src = smallImg[0].src;
+        }
+        smallImg[1].onclick = function() {
+            productImg.src = smallImg[1].src;
+        }
+        smallImg[2].onclick = function() {
+            productImg.src = smallImg[2].src;
+        }
+        smallImg[3].onclick = function() {
+            productImg.src = smallImg[3].src;
+        }
+    </script>
+</body>
+
+</html>

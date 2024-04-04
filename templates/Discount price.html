@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XYZ | Discount price</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        window.onload = function() {
+            var rating = "{{ rating }}";
+            var rating_count = "{{ rating_count }}";
+            var actual_price = "{{ actual_price }}";
+
+            document.getElementById("rating").value = rating;
+            document.getElementById("rating_count").value = rating_count;
+            document.getElementById("actual_price").value = actual_price;
+        }
+
+        $(document).ready(function(){
+            $('form').submit(function(event){
+                event.preventDefault();
+                
+                var formData = $(this).serialize();
+                
+                $.ajax({
+                    type: 'POST',
+                    url: '/predict',
+                    data: formData,
+                    success: function(response){
+                        $('#discounted').val(response);
+                    }
+                });
+            });
+        });
+    </script>
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <a href="{{ url_for('home') }}"><img src="{{ url_for('static', filename='images/XYZ_Logo.png') }}" width="125px"></a>
+                </div>
+                <nav>
+                    <ul id="MenuItems">
+                        <li><a href="{{ url_for('home') }}">Home</a></li>
+                         <li><a href="">Products</a></li>
+                         <li><a href="">About</a></li>
+                         <li><a href="">Contact</a></li>
+                         <li><a href="{{ url_for('Discountprice') }}">Discount price</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    <div class="account-page">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-2">
+                    <div class="form-container">
+                        <div class="form-btn">
+                            <span>Discount Price</span>
+                        </div>
+                        <form id="RegForm" method="post">
+                            <input type="number" name="rating" id="rating" step="0.01" required placeholder="Rating">
+                            <input type="number" name="rating_count" id="rating_count" required placeholder="Rating Count">
+                            <input type="number" name="actual_price" id="actual_price" step="0.01" required placeholder="Actual Price">
+                            <button type="submit" class="btn" value="Predict Discount">Submit</button>
+                            <input type="text" name="discounted" id="discounted" placeholder="Discount Price" readonly>
+                            <button type="submit" class="btn">Add To Cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+
+</body>
+
+</html>
