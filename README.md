@@ -7,13 +7,13 @@ An e commerce company “ xyz “ aims to implement machine learning service in 
 Clone this repository locally. In a terminal, run the following command:
 
 ```
-$ git clone https://github.com/IBM/max-image-resolution-enhancer.git
+$ git clone https://github.com/shareefmx/E_commerce.git
 ```
 ### Run the project 
 
 Run the python file. In a terminal, run the following command:
 
 ```
-$ git clone https://github.com/IBM/max-image-resolution-enhancer.git
+$ python App.py
 ```
 
